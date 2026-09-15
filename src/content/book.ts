@@ -1,4 +1,5 @@
 import introductionRaw from '@book/introduction.md?raw'
+import chapter001Raw from '@book/chapters/chapter_001.md?raw'
 import indexRaw from '@book/index.md?raw'
 
 export type BookPart = {
@@ -16,7 +17,6 @@ function stripFrontMatter(md: string): string {
   return md.replace(/^---[\s\S]*?---\s*/, '').trim()
 }
 
-/** Разбивает markdown-вступление на абзацы/блоки для рендера */
 export function parseMarkdownBlocks(markdown: string): string[] {
   return stripFrontMatter(markdown)
     .split(/\n---\n/)
@@ -43,9 +43,18 @@ export const bookParts: BookPart[] = [
     dateLabel: '05.09.2026',
     markdown: stripFrontMatter(introductionRaw),
   },
+  {
+    id: 'chapter-001',
+    slug: 'chapter-001',
+    title: 'Глава 001',
+    subtitle: 'С мёртвой точки',
+    kind: 'chapter',
+    status: 'PUBLISHED',
+    dateLabel: '05–13.09.2026',
+    markdown: stripFrontMatter(chapter001Raw),
+  },
 ]
 
-/** Пока глав нет — оглавление строится из published parts + placeholder */
 export function getTableOfContents() {
   return {
     published: bookParts.filter((p) => p.status === 'PUBLISHED'),

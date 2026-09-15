@@ -33,10 +33,10 @@ export function BookNavigation({ currentSlug }: BookNavigationProps) {
                   : 'text-ascen-muted hover:text-ascen-text'
               }`}
             >
-              {part.title}
+              {part.subtitle ? `${part.title}. ${part.subtitle}` : part.title}
             </Link>
           ))}
-          <p className="pt-2 text-ascen-muted/70">Глава 001 — скоро</p>
+          <p className="pt-2 text-ascen-muted/70">История продолжается</p>
         </nav>
       </div>
     </aside>

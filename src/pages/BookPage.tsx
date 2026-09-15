@@ -81,9 +81,9 @@ function TableOfContentsView() {
                 to={`/book/${part.slug}`}
                 className="group flex items-baseline justify-between gap-4 border-b border-ascen-line pb-4"
               >
-                <span className="font-display text-2xl transition-colors group-hover:text-ascen-accent">
+        <span className="font-display text-2xl transition-colors group-hover:text-ascen-accent">
                   <span className="mr-4 text-ascen-muted">{String(index + 1).padStart(2, '0')}</span>
-                  {part.title}
+                  {part.subtitle ? `${part.title}. ${part.subtitle}` : part.title}
                 </span>
                 <span className="shrink-0 text-xs text-ascen-muted">{part.dateLabel}</span>
               </Link>
@@ -93,7 +93,7 @@ function TableOfContentsView() {
 
         <div className="mt-10 border border-dashed border-ascen-line px-5 py-6 text-ascen-muted">
           <p className="font-display text-xl text-ascen-accent">История продолжается.</p>
-          <p className="mt-2 text-sm">Глава 001 появится после первой утверждённой публикации.</p>
+          <p className="mt-2 text-sm">Следующая глава появится вместе с новой неделей жизни.</p>
         </div>
       </section>
 
